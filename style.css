@@ -1,0 +1,305 @@
+:root{
+    --primary-color: rgb(241, 94, 34);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-container{
+    padding: 15px 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.website-link{
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    font-family: "Anton SC", sans-serif;
+    font-weight: 200;
+    text-align: center;
+    flex: 1;
+    white-space: nowrap;
+    cursor: default;
+}
+
+#website-title{
+    min-width: 210px;
+    max-width: 220px;
+    cursor: pointer;
+}
+
+.navbar-links{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    flex: 1;
+}
+
+.navbar-links a{
+    text-decoration: none;
+    color: white;
+    margin: 0% 10%;
+    position: relative;
+}
+
+.navbar-links a:hover{
+    color:white;
+}
+
+.navbar-links a::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.navbar-links a:hover::before{
+    transform: scaleX(1);
+}
+
+.navbar-button{
+    flex: 1;
+    display: flex;
+    justify-content: right;
+}
+
+#search-form{
+    display: flex;
+    justify-content: center;
+    margin: 0%;
+    margin-bottom: 25px;
+}
+
+#entry-container{
+    display: flex;
+    justify-content: center;
+    padding: 20px 40px;
+    border: solid var(--primary-color) .15rem;
+    border-radius: 6px;
+}
+
+.input-section{
+    margin: 0% 2%;
+}
+
+input{
+    border: solid rgb(155, 155, 155);
+    border-radius: 5px;
+    padding-left: 7px;
+    text-decoration: none;
+    transition: border-color 0.4s ease;
+    outline: none;
+}
+
+input:focus{
+    border-color: var(--primary-color);
+}
+
+.requirement-note{
+    font-family: "Beiruti", sans-serif;
+    color:darkgray;
+    padding-top: 3px;
+}
+
+.red{
+    color: var(--primary-color);
+}
+
+#confirmation{
+    height: 28px;
+    padding: 3px;
+    line-height: 19px;
+    border: solid var(--primary-color) 2px;
+    border-radius: 5px;
+    background-color: white;
+    transition: background-color 0.2s;
+}
+
+#confirmation:hover{
+    background-color: var(--primary-color);
+}
+
+i{
+    color: var(--primary-color);
+    transition: color 0.2s;
+}
+
+#confirmation:hover i{
+    color: white;
+}
+
+#body-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 40px;
+}
+
+#jump-section{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+#artist-jump-link{
+    padding: 0px 5px;
+    transition: 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 25px;
+    border: .12rem solid var(--primary-color);
+}
+
+#artist-jump-link:hover{
+    color: var(--primary-color);
+}
+
+.down-arrow{
+    line-height: 24px;
+}
+
+.info-card{
+    width: 40%;
+    margin: 0px 2% 30px 0px;
+}
+
+.mini-header{
+    width: 200px;
+    margin: 0px auto 20px auto;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.lyrics-card{
+    
+}
+
+.card-head{
+    color: var(--primary-color);
+    border: solid var(--primary-color) 0.15rem;
+    height: 55px;
+    border-radius: 10px 10px 0px 0px;
+    text-align: center;
+    line-height: 50px;
+    font-family: "Anton SC", sans-serif;
+    font-size: 25px;
+    letter-spacing: 1px;
+}
+
+.card-content{
+    border: solid var(--primary-color) 2px;
+    border-top: none;
+    border-radius: 0px 0px 10px 10px;
+    padding: 4% 7%;
+    font-family: "Nunito", sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 35px;
+}
+
+#artist-photo{
+    border-radius: 10px;
+    border: 1px solid var(--primary-color);
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#lyrics{
+    white-space: pre-line;
+}
+
+.mini-heads{
+    color: var(--primary-color);
+}
+
+@media(max-width: 750px){
+    .navbar-container{
+        flex-wrap: wrap;
+    }
+
+    #title-section{
+        flex: 1 0 50%;
+    }
+
+    .website-link{
+        flex-basis: 100%;
+        border-bottom: solid white 1px;
+        margin-bottom: 8px;
+    }
+
+    .navbar-links{
+        order: 2;
+    }
+
+    .navbar-button{
+        order: 3;
+    }
+}
+
+@media(max-width: 251px){
+    .navbar-button{
+        justify-content: center;
+    }
+
+    .navbar-links a{
+        padding-right: 0%;
+        padding: 0px 10%;
+    }
+
+    .website-link{
+        white-space: normal;
+    }
+}
+
+@media(max-width: 500px){
+    #entry-container{
+        flex-direction: column;
+    }
+
+    .input-section{
+        margin-bottom: 10px;
+    }
+}
+
+@media(max-width: 730px){
+    .artist-card{
+        order: 100;
+    }
+
+    .info-card{
+        margin: 10px auto;
+        width: 85%;
+    }
+
+    #body-container{
+        flex-direction: column;
+        justify-content: center;
+    }
+
+}
+
+@media(min-width: 731px){
+    #jump-section{
+        display: none;
+    }
+}
+
+
+
