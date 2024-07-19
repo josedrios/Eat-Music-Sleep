@@ -178,17 +178,14 @@ i{
 .info-card{
     width: 40%;
     margin: 0px 2% 30px 0px;
+    max-width: 650px;
 }
 
 .mini-header{
     width: 200px;
-    margin: 0px auto 20px auto;
+    margin: 0px auto 10px auto;
     text-align: center;
     color: var(--primary-color);
-}
-
-.lyrics-card{
-    
 }
 
 .card-head{
@@ -217,8 +214,15 @@ i{
 #artist-photo{
     border-radius: 10px;
     border: 1px solid var(--primary-color);
-    width: 100%;
     margin-bottom: 10px;
+    width: 0%;
+    height: 0;
+    transition: 0.4s ease;
+}
+
+#artist-photo.show{
+    height: auto;
+    width: 100%;
 }
 
 #lyrics{
@@ -227,6 +231,51 @@ i{
 
 .mini-heads{
     color: var(--primary-color);
+    padding-top: 7px;
+    margin-bottom: 5px;
+}
+
+#tag-section{
+    line-height: 50px;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#tags{
+    margin: auto 10px 10px 0px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    padding: 9px 10px;
+    display: inline-block;
+    text-align: left;
+    line-height: 30px;
+}
+
+#from-header{
+    margin-top: 15px;
+}
+
+#lyrics-content{
+    height: 0;
+    overflow: hidden;
+    transition: height 1s ease;
+}
+
+#lyrics-content.show{
+    height: 100%;
+}
+
+#artist-content{
+    height: 0%;
+    max-height: 700px;
+    overflow: hidden;
+    transition: height 1s ease;
+}
+
+#artist-content.show{
+    height: 100%;
 }
 
 @media(max-width: 750px){
@@ -271,6 +320,7 @@ i{
 @media(max-width: 500px){
     #entry-container{
         flex-direction: column;
+        padding: 6% 7%;
     }
 
     .input-section{
