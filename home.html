@@ -35,7 +35,7 @@
 
     </div>
 
-    <form id="search-form" autocomplete="off" action="">
+    <form id="search-form" autocomplete="off">
         <div id="entry-container">
             <div class="input-section">
                 <input type="text" id="artist-entry" placeholder="Enter Artist">
@@ -45,11 +45,15 @@
                 <input type="text" id="song-entry" placeholder="Enter Song">
                 <div class="requirement-note red">*REQUIRED*</div>
             </div>
-            <button type="button" id="confirmation">
+            <button type="submit" id="confirmation">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
         </div>
     </form>
+
+    <div class="alerter" id="empty-song">
+        You must enter a song name!
+    </div>
     
     <div id="body-container">
 

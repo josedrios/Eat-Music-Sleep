@@ -278,6 +278,25 @@ i{
     height: 100%;
 }
 
+.alerter{
+    text-align: center;
+    display: block;
+    background-color: rgba(255, 0, 0, 0.299);
+    margin-bottom: 25px;
+    height: 0px;
+    overflow: hidden;
+    line-height: 50px;
+    transition: 1s ease;
+}
+
+.alerter.show{
+    height: 50px;
+}
+
+.hidden{
+    display: none;
+}
+
 @media(max-width: 750px){
     .navbar-container{
         flex-wrap: wrap;
