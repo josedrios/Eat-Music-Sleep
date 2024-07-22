@@ -1,7 +1,7 @@
 const artistInput = document.getElementById("artist-entry");
 const songInput = document.getElementById("song-entry");
 const lyrics = document.getElementById("lyrics");
-const button = document.getElementById("confirmation");
+const btn = document.getElementById("confirmation");
 const artistPhoto = document.getElementById("artist-photo");
 
 const artistHeader = document.getElementById("artist-header");
@@ -18,49 +18,48 @@ const art = document.getElementById("artist-content");
 
 const lyricsContent = document.getElementById("lyrics-content");
 
-button.addEventListener('keypress', function(event){
+btn.addEventListener('keypress', function(event){
     if(event.key === 'Enter'){
         event.preventDefault();
         document.getElementById('confirmation').click();
+        console.log("submitted")
     }
 });
 
-document.getElementById('confirmation').addEventListener('click', function() {
-    document.getElementById('search-form').submit(); // Submit the form
+document.getElementById('confirmation').addEventListener('click', function(event) {
+    event.preventDefault();
+    console.log("submitted")
 });
 
 const alerter = document.getElementById("empty-song");
-let booler = false;
-button.addEventListener('click', async (e) => {
-    const artist = artistInput.value.trim();
-    const song = songInput.value.trim();
-    // const artist = "Frank Ocean"
-    // const song = "Ivy"
-    booler = false;
-    if(artist !== ''){
-        booler = true;
-    }
+
+
+btn.addEventListener('click', async (e) => {
+    // const artist = artistInput.value.trim();
+    // const song = songInput.value.trim();
+    const artist = "Frank Ocean"
+    const song = "Ivy"
 
     if(song === ''){
         alerter.classList.add("show");
         setTimeout(function(){
             alerter.classList.remove("show");
         }, 3000)
+        return
     }
 
-    let mbid;
-
-    await fetch(`https://api.lyrics.ovh/v1/${artist}/${song}`)
+    if(artist !== '' && song !== ''){
+        await fetch(`https://api.lyrics.ovh/v1/${artist}/${song}`)
         .then(response => response.json())
         .then(data => {
             console.log("-----LYRICS-----")
             console.log(data)
 
-            if(data['lyrics'] === 'undefined'){
+            if(data['lyrics'] === undefined){
                 lyrics.innerHTML = "Could not find song"
+            }else{
+                lyrics.innerHTML = data['lyrics'];
             }
-            
-            lyrics.innerHTML = data['lyrics'];
             
             artistHeader.innerHTML = artist;
             songHeader.innerHTML = song;
@@ -69,13 +68,34 @@ button.addEventListener('click', async (e) => {
                 lyricsContent.classList.add("show");
             }
         })
+
+    } else if(artist === '' && song !== ''){
+        await fetch(`https://api.lyrics.ovh/suggest/${song}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log("-----LYRICS-----")
+            console.log(data)
+
+            if(data['lyrics'] === undefined){
+                lyrics.innerHTML = "Could not find song"
+            }else{
+                lyrics.innerHTML = data['lyrics'];
+            }
+            
+            artistHeader.innerHTML = artist;
+            songHeader.innerHTML = song;
+
+            if(lyrics.textContent.trim() !== ''){
+                lyricsContent.classList.add("show");
+            }
+        })
+    }
+
+    let mbid;
     
     await fetch(`https://musicbrainz.org/ws/2/artist/?query=artist:${artist}&fmt=json`)
         .then(response => response.json())
         .then(data => {
-            if(booler !== true){
-                return;
-            }
             if(tags){
                 const divs = tags.querySelectorAll('div');
                 divs.forEach(div=> div.remove());
@@ -109,9 +129,6 @@ button.addEventListener('click', async (e) => {
     fetch(`https://webservice.fanart.tv/v3/music/${mbid}?api_key=d96e62befd65d0f471cf3b12126ac722`)
         .then(response => response.json())
         .then(data => {
-            if(booler !== true){
-                return;
-            }
             artistPhoto.src = data['artistbackground'][0]['url'];
             if(imageA.getAttribute("src").trim() !== ''){
                 imageA.classList.add("show");
