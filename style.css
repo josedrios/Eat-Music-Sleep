@@ -297,6 +297,64 @@ i{
     display: none;
 }
 
+#result-container{
+    display: flex;
+    flex-direction: column;
+    margin: 30px 10%;
+}
+
+#result-container > :first-child{
+    border-top: 2px solid var(--primary-color);
+}
+
+.result-row{
+    border-bottom: 2px solid var(--primary-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 2%;
+}
+
+.result-row-info{
+    display: flex;
+    flex-direction: row;
+}
+
+.result-image{
+    border-radius: 1000px;
+}
+
+.artist-song-info{
+    width: 200px;
+    padding: 5px 20px;
+    line-height: 40px;
+}
+
+.lyrics-btn-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.find-lyrics-btn{
+    height: 60px;
+    width: 100px;
+    outline: none;
+    border-radius: 7px;
+    background-color: white;
+    border: 2px solid var(--primary-color);
+    transition: color 0.2s;
+}
+
+.find-lyrics-btn:hover{
+    color: var(--primary-color);
+}
+
+.result-header{
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+}
+
 @media(max-width: 750px){
     .navbar-container{
         flex-wrap: wrap;

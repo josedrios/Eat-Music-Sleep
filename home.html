@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton+SC&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/663e24040b.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -38,12 +38,7 @@
     <form id="search-form" autocomplete="off" action="">
         <div id="entry-container">
             <div class="input-section">
-                <input type="text" id="artist-entry" placeholder="Enter Artist">
-                <div class="requirement-note">*OPTIONAL*</div>
-            </div>
-            <div class="input-section">
                 <input type="text" id="song-entry" placeholder="Enter Song">
-                <div class="requirement-note red">*REQUIRED*</div>
             </div>
             <button type="submit" id="confirmation">
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -53,6 +48,33 @@
 
     <div class="alerter" id="empty-song">
         You must enter a song name!
+    </div>
+
+    <div id="result-container">
+        <div class="result-row">
+            <div class="result-row-info">
+                <img class="result-image" src="http://cdn-images.dzcdn.net/images/artist/8d0291327a1f8937352fda9c4c1eadf1/120x120-000000-80-0-0.jpg" alt="">
+                <div class="artist-song-info">
+                    <div class="artist-result result-header">Artist Name</div>
+                    <div class="song-result result-header">Song</div>
+                </div>
+            </div>
+            <div class="lyrics-btn-container">
+                <button class="find-lyrics-btn">View Lyrics</button>
+            </div>
+        </div>
+        <div class="result-row">
+            <div class="result-row-info">
+                <img class="result-image" src="http://cdn-images.dzcdn.net/images/artist/8d0291327a1f8937352fda9c4c1eadf1/120x120-000000-80-0-0.jpg" alt="">
+                <div class="artist-song-info">
+                    <div class="artist-result result-header">Artist Name</div>
+                    <div class="song-result result-header">Song</div>
+                </div>
+            </div>
+            <div class="lyrics-btn-container">
+                <button class="find-lyrics-btn">View Lyrics</button>
+            </div>
+        </div>
     </div>
     
     <div id="body-container">
