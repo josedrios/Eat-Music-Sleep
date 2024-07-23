@@ -12,6 +12,7 @@ const imageA = document.getElementById("artist-photo");
 const art = document.getElementById("artist-content");
 const lyricsContent = document.getElementById("lyrics-content");
 const alerter = document.getElementById("empty-song");
+const resultsContainer = document.getElementById("result-container")
 
 // Form Submission Efficiency
 btn.addEventListener('keypress', function(event){
@@ -41,10 +42,39 @@ btn.addEventListener('click', async (e) => {
             }
 
             for(i=0; i< 5; i++){
-                //newDiv.innerHTML = data['artists'][0]['tags'][i]['name'];
-                let currentSong = data[0];
+                let currentArtist = data.data[i].artist.name;
+                console.log(currentArtist);
+
+                let currentSong = data.data[i].title;
                 console.log(currentSong);
+
+                let currentImg = data.data[i].artist.picture;
+                console.log(currentImg);
+
+                let adding = document.createElement('div');
+                adding.classList.add("result-row");
+                adding.innerHTML =`
+                    <div class="result-row-info">
+                        <img class="result-image" src="${currentImg}" alt="">
+                        <div class="artist-song-info">
+                            <div class="artist-result result-header">${currentArtist}</div>
+                            <div class="song-result result-header">${currentSong}</div>
+                        </div>
+                    </div>
+                    <div class="lyrics-btn-container">
+                        <button class="find-lyrics-btn id=button-test">View Lyrics</button>
+                    </div>`
+                resultsContainer.appendChild(adding);
+                
             }
+
+            const buttons = document.querySelectorAll('.find-lyrics-btn');
+            buttons.forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    const tester = data.data[index].artist.name;
+                    console.log(tester)
+                });
+            });
         })
 })
 
