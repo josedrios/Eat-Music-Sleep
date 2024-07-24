@@ -357,6 +357,10 @@ i{
     display: inline;
 }
 
+#artist-heading.show{
+    display: inline;
+}
+
 @media(max-width: 750px){
     .navbar-container{
         flex-wrap: wrap;
