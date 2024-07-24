@@ -3,6 +3,7 @@ const lyrics = document.getElementById("lyrics");
 const btn = document.getElementById("confirmation");
 const artistPhoto = document.getElementById("artist-photo");
 const artistHeader = document.getElementById("artist-header");
+const albumHeader = document.getElementById("album-header");
 const songHeader = document.getElementById("song-header");
 const art = document.getElementById("artist-content");
 const lyricsContent = document.getElementById("lyrics-content");
@@ -10,6 +11,8 @@ const alerter = document.getElementById("empty-song");
 const resultsContainer = document.getElementById("result-container");
 const duration = document.getElementById("duration");
 const explicit = document.getElementById("explicit");
+const album = document.getElementById("album-photo");
+const preview = document.getElementById("preview");
 
 // Form Submission Efficiency
 btn.addEventListener('keypress', function(event){
@@ -63,21 +66,25 @@ btn.addEventListener('click', async (e) => {
                     populateLyrics(data, index)
                 });
             });
+
+            // REMOVE AFTER UI CLEAN UP
+            populateLyrics(data, 0)
+            resultsContainer.style.display = "none"
         })
+
 })
 
 function populateLyrics(data, index){
     const tempName = data.data[index].artist.name;
     const tempSong = data.data[index].title;
-    const albumPhoto = data.data[index].album.cover;
-    if(data.data[index].explicit_lyrics === true){
-        explicit.classList.add("show")
-        console.log("song is exp")
-    }else{
-        console.log("song is not exp")
-    }
+    const tempAlbum = data.data[index].album.title;
+    const artistPic = data.data[index].artist.picture;
+    const albumPic = data.data[index].album.cover;
+    preview.setAttribute('src', data.data[index].preview);
     
-    artistPhoto.setAttribute('src',`${albumPhoto}`);
+    artistPhoto.setAttribute('src',`${artistPic}`);
+    album.setAttribute('src', `${albumPic}`);
+
 
     fetch(`https://api.lyrics.ovh/v1/${tempName}/${tempSong}`)
     .then(response => response.json())
@@ -90,6 +97,7 @@ function populateLyrics(data, index){
     
         artistHeader.innerHTML = tempName;
         songHeader.innerHTML = tempSong;
+        albumHeader.innerHTML = tempAlbum;
 
         if(lyrics.textContent.trim() !== ''){
             lyricsContent.classList.add("show");
@@ -100,6 +108,9 @@ function populateLyrics(data, index){
     
 
 }
+
+
+
 
 
 

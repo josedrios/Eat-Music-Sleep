@@ -55,24 +55,36 @@
     </div>
     
     <div id="body-container">
-
         <div id="jump-section">
             <a href="#jump-destination" id="artist-jump-link">
-                Go to Artist Info
+                Go to Song Info
                 <i class="fa-solid fa-arrow-down down-arrow"></i>
             </a>
         </div>
 
         <div class="info-card artist-card" id="jump-destination">
             <div class="card-head">
-                ARTIST:
+                INFO:
             </div>
             <!-- ADD ALBUM / EXPLICIT / DURATION /  -->
             <div class="card-content" id="artist-content">
-                <p class="mini-header" id="artist-header"></p>
-                <img id="artist-photo" src="" alt="">
-                <div id="duration"></div>
-                <div id="explicit">EXPLICIT</div>
+                <div id="info-top">
+                    <p  id="artist-heading">Artist:</p>
+                    <p class="mini-header" id="artist-header"></p>
+                </div>
+                <img class="info-photo" id="artist-photo" src="" alt="">
+                <div id="info-top" class="midderson">
+                    <p  id="artist-heading">Album:</p>
+                    <p class="mini-header" id="album-header"></p>
+                </div>
+                <img class="info-photo" id="album-photo" src="" alt="">
+                <div id="info-top" class="midderson">
+                    <p  id="artist-heading">Preview:</p>
+                </div>
+                <audio id="preview" controls>
+                    <source  src="" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
             </div>
         </div>
 

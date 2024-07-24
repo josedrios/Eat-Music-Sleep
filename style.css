@@ -183,9 +183,25 @@ i{
 
 .mini-header{
     width: 200px;
+    display: inline;
     margin: 0px auto 10px auto;
     text-align: center;
     color: var(--primary-color);
+}
+
+.midderson{
+    margin-top: 10px;
+    padding-top: 20px;
+}
+
+#info-top{
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+#preview{
+    margin: 0px auto 50px auto;
+    width: 250px;
 }
 
 .card-head{
@@ -204,7 +220,7 @@ i{
     border: solid var(--primary-color) 2px;
     border-top: none;
     border-radius: 0px 0px 10px 10px;
-    padding: 4% 7%;
+    padding: 6% 7% 0% 7%;
     font-family: "Nunito", sans-serif;
     font-weight: 500;
     font-size: 25px;
@@ -213,6 +229,7 @@ i{
 
 #lyrics{
     white-space: pre-line;
+    margin: 0;
 }
 
 .mini-heads{
@@ -235,6 +252,9 @@ i{
     height: 0;
     overflow: hidden;
     transition: height 1s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #artist-content.show{
@@ -318,6 +338,25 @@ i{
     font-size: 20px;
 }
 
+#explicit{
+    display: none;
+}
+
+#explicit.show{
+    display: block;
+}
+
+.info-photo{
+    min-width: 200px;
+    max-width: 250px;
+    border-radius: 6px;
+    margin: auto
+}
+
+#artist-heading{
+    display: inline;
+}
+
 @media(max-width: 750px){
     .navbar-container{
         flex-wrap: wrap;
@@ -340,15 +379,6 @@ i{
     .navbar-button{
         order: 3;
     }
-}
-
-#explicit{
-    display: hidden;
-}
-
-#explicit.show{
-    display: block;
-    color: red;
 }
 
 @media(max-width: 251px){
