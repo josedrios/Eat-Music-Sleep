@@ -1,18 +1,15 @@
-const artistInput = document.getElementById("artist-entry");
 const songInput = document.getElementById("song-entry");
 const lyrics = document.getElementById("lyrics");
 const btn = document.getElementById("confirmation");
 const artistPhoto = document.getElementById("artist-photo");
 const artistHeader = document.getElementById("artist-header");
 const songHeader = document.getElementById("song-header");
-const tags = document.getElementById("tag-section");
-const from = document.getElementById("from");
-const miniheads = document.getElementsByClassName("mini-heads");
-const imageA = document.getElementById("artist-photo");
 const art = document.getElementById("artist-content");
 const lyricsContent = document.getElementById("lyrics-content");
 const alerter = document.getElementById("empty-song");
-const resultsContainer = document.getElementById("result-container")
+const resultsContainer = document.getElementById("result-container");
+const duration = document.getElementById("duration");
+const explicit = document.getElementById("explicit");
 
 // Form Submission Efficiency
 btn.addEventListener('keypress', function(event){
@@ -33,8 +30,6 @@ btn.addEventListener('click', async (e) => {
     await fetch(`https://api.lyrics.ovh/suggest/${song}&fmt=json`)
         .then(response => response.json())
         .then(data => {
-            console.log("Song: " + song);
-            console.log(data)
             let resultsLength = JSON.parse(data['data'].length);
 
             if(resultsLength === 0){
@@ -42,16 +37,11 @@ btn.addEventListener('click', async (e) => {
             }
 
             for(i=0; i< 5; i++){
-                let currentArtist = data.data[i].artist.name;
-                console.log(currentArtist);
+                const currentArtist = data.data[i].artist.name;
+                const currentSong = data.data[i].title;
+                const currentImg = data.data[i].artist.picture;
+                const adding = document.createElement('div');
 
-                let currentSong = data.data[i].title;
-                console.log(currentSong);
-
-                let currentImg = data.data[i].artist.picture;
-                console.log(currentImg);
-
-                let adding = document.createElement('div');
                 adding.classList.add("result-row");
                 adding.innerHTML =`
                     <div class="result-row-info">
@@ -65,18 +55,53 @@ btn.addEventListener('click', async (e) => {
                         <button class="find-lyrics-btn id=button-test">View Lyrics</button>
                     </div>`
                 resultsContainer.appendChild(adding);
-                
             }
 
             const buttons = document.querySelectorAll('.find-lyrics-btn');
             buttons.forEach((button, index) => {
                 button.addEventListener('click', () => {
-                    const tester = data.data[index].artist.name;
-                    console.log(tester)
+                    populateLyrics(data, index)
                 });
             });
         })
 })
+
+function populateLyrics(data, index){
+    const tempName = data.data[index].artist.name;
+    const tempSong = data.data[index].title;
+    const albumPhoto = data.data[index].album.cover;
+    if(data.data[index].explicit_lyrics === true){
+        explicit.classList.add("show")
+        console.log("song is exp")
+    }else{
+        console.log("song is not exp")
+    }
+    
+    artistPhoto.setAttribute('src',`${albumPhoto}`);
+
+    fetch(`https://api.lyrics.ovh/v1/${tempName}/${tempSong}`)
+    .then(response => response.json())
+    .then(data => {
+        if(data['lyrics'] === undefined){
+            lyrics.innerHTML = "Could not find song"
+        }else{
+            lyrics.innerHTML = data['lyrics']
+        }
+    
+        artistHeader.innerHTML = tempName;
+        songHeader.innerHTML = tempSong;
+
+        if(lyrics.textContent.trim() !== ''){
+            lyricsContent.classList.add("show");
+            art.classList.add("show");
+        }
+
+    })    
+    
+
+}
+
+
 
 
 // btn.addEventListener('click', async (e) => {
@@ -103,7 +128,7 @@ btn.addEventListener('click', async (e) => {
 //             if(data['lyrics'] === undefined){
 //                 lyrics.innerHTML = "Could not find song"
 //             }else{
-//                 lyrics.innerHTML = data['lyrics'];
+//                 
 //             }
             
 //             artistHeader.innerHTML = artist;
