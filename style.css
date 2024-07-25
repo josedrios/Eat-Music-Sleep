@@ -134,6 +134,7 @@ i{
     height: 0px;
     text-align: center;
     background-color: rgba(255, 0, 0, 0.299);
+    color: rgb(219, 34, 34);
     overflow: hidden;
     line-height: 50px;
     transition: 1s ease;
@@ -161,6 +162,13 @@ i{
     flex-direction: row;
     justify-content: space-between;
     padding: 10px 2%;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.no-results-found{
+    display: block;
+    text-align: center;
+    padding: 20px;
     border-bottom: 2px solid var(--primary-color);
 }
 
@@ -264,6 +272,19 @@ i{
     line-height: 35px;
 }
 
+#artist-info-name{
+    margin-top: 300px;
+}
+
+#artist-info-name.show{
+    margin-top: 0px;
+}
+
+.artist-info-section{
+    padding: 10px 0px;
+    margin: auto;
+}
+
 .card-head{
     height: 55px;
     border: solid var(--primary-color) 0.15rem;
@@ -284,6 +305,10 @@ i{
     color: var(--primary-color);
 }
 
+.black-font{
+    color: black;
+}
+
 #lyrics-content{
     height: 0;
     overflow: hidden;
@@ -292,6 +317,11 @@ i{
 
 #lyrics-content.show{
     height: 100%;
+}
+
+#lyrics-content.no-lyrics{
+    text-align: center;
+    height: 150px;
 }
 
 #lyrics{
@@ -316,6 +346,11 @@ i{
 
 #artist-content.show{
     height: auto;
+}
+
+#preview{
+    margin: auto;
+    width: 260px;
 }
 
 /* RESPONSIVENESS RELATED */
