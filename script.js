@@ -7,12 +7,10 @@ const albumHeader = document.getElementById("album-header");
 const songHeader = document.getElementById("song-header");
 const art = document.getElementById("artist-content");
 const lyricsContent = document.getElementById("lyrics-content");
-const alerter = document.getElementById("empty-song");
+const alerter = document.getElementById("alerter");
 const resultsContainer = document.getElementById("result-container");
-const duration = document.getElementById("duration");
 const album = document.getElementById("album-photo");
 const preview = document.getElementById("preview");
-const tester = document.getElementById("artist-heading")
 
 // Form Submission Efficiency
 btn.addEventListener('keypress', function(event){
@@ -22,15 +20,11 @@ btn.addEventListener('keypress', function(event){
     }
 });
 
-document.getElementById('confirmation').addEventListener('click', function(event) {
-    event.preventDefault();
-});
-
-
-
 // API (INFORMATION RETRIEVAL)
 btn.addEventListener('click', async (e) => {
-    var song = songInput.value.trim();
+    //var song = songInput.value.trim();
+    var song = "ivy"
+
     await fetch(`https://api.lyrics.ovh/suggest/${song}&fmt=json`)
         .then(response => response.json())
         .then(data => {
@@ -51,11 +45,11 @@ btn.addEventListener('click', async (e) => {
                     <div class="result-row-info">
                         <img class="result-image" src="${currentImg}" alt="">
                         <div class="artist-song-info">
-                            <div class="artist-result result-header">${currentArtist}</div>
-                            <div class="song-result result-header">${currentSong}</div>
+                            <div class="result-header">${currentArtist}</div>
+                            <div class="result-header">${currentSong}</div>
                         </div>
                     </div>
-                    <div class="lyrics-btn-container">
+                    <div class="result-btn-container">
                         <button class="find-lyrics-btn id=button-test">View Lyrics</button>
                     </div>`
                 resultsContainer.appendChild(adding);
@@ -67,7 +61,7 @@ btn.addEventListener('click', async (e) => {
                     populateLyrics(data, index)
                 });
             });
-            
+            populateLyrics(data,0)
         })
 })
 
@@ -99,7 +93,6 @@ function populateLyrics(data, index){
         if(lyrics.textContent.trim() !== ''){
             lyricsContent.classList.add("show");
             art.classList.add("show");
-            tester.classList.add("show")
         }
     })    
 }

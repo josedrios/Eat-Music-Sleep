@@ -16,26 +16,26 @@
 </head>
 <body>
     
-    <div class="navbar-container">
+    <div id="navbar-container">
 
-        <div class="navbar-links test">
+        <div id="navbar-links-container">
             <a href="">ABOUT</a>
             <a href="">HOME</a>
         </div>
 
-        <div class="website-link test" href="">
+        <div id="website-link-container" href="">
             <a id="website-title">EAT, MUSIC, SLEEP</a>
         </div>
 
-        <div class="navbar-button" id="title-section">
-            <button class=" btn btn-outline-light" type="submit">Shuffle</button>
+        <div id="navbar-button" id="title-section">
+            <button class="btn btn-outline-light" type="submit">Shuffle</button>
         </div>
 
     </div>
 
     <form id="search-form" autocomplete="off" action="">
         <div id="entry-container">
-            <div class="input-section">
+            <div id="input-section">
                 <!-- SONG-ENTRY PROTECT -->
                 <input type="text" id="song-entry" placeholder="Enter Song">
             </div>
@@ -47,7 +47,7 @@
     </form>
 
     <!-- EMPTY-SONG PROTECT -->
-    <div class="alerter" id="empty-song">
+    <div id="alerter">
         You must enter a song name!
     </div>
 
@@ -58,34 +58,34 @@
     
     <div id="body-container">
         <div id="jump-section">
-            <a href="#jump-destination" id="artist-jump-link">
+            <a href="#artist-card" id="artist-jump-link">
                 Go to Song Info
                 <i class="fa-solid fa-arrow-down down-arrow"></i>
             </a>
         </div>
 
-        <div class="info-card artist-card" id="jump-destination">
+        <div class="info-card" id="artist-card">
             <div class="card-head">
                 INFO:
             </div>
             <!-- ARTIST-CONTENT PROTECT -->
             <div class="card-content" id="artist-content">
-                <div id="info-top">
+                <div>
                     <!-- ARTIST-HEADING PROTECT -->
-                    <p  id="artist-heading">Artist:</p>
+                    <p  class="small-inline-heading black-font">Artist:</p>
                     <!-- ARTIST-HEADER PROTECT -->
-                    <p class="mini-header" id="artist-header"></p>
+                    <p class="small-inline-heading" id="artist-header"></p>
                 </div>
                 <!-- ARTIST-PHOTO PROTECT -->
                 <img class="info-photo" id="artist-photo" src="" alt="">
-                <div id="info-top" class="midderson">
-                    <p  id="artist-heading">Album:</p>
-                    <p class="mini-header" id="album-header"></p>
+                <div>
+                    <p  class="small-inline-heading black-font">Album:</p>
+                    <p class="small-inline-heading" id="album-header"></p>
                 </div>
                 <!-- ALBUM-PHOTO PROTECT -->
                 <img class="info-photo" id="album-photo" src="" alt="">
-                <div id="info-top" class="midderson">
-                    <p  id="artist-heading">Preview:</p>
+                <div>
+                    <p class="small-inline-heading">Preview</p>
                 </div>
                 <!-- PREVIEW PROTECT -->
                 <audio id="preview" controls>
@@ -101,7 +101,7 @@
             </div>
             <!-- LYRICS-CONTENT PROTECT -->
             <div class="card-content" id="lyrics-content">
-                <p class="mini-header" id="song-header">
+                <p id="song-header">
         
                 </p>
                 <!-- LYRICS PROTECT -->

@@ -2,59 +2,37 @@
     --primary-color: rgb(241, 94, 34);
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+/* NAV RELATED */
 
-.navbar-container{
-    padding: 15px 10%;
+#navbar-container{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--primary-color);
+    padding: 15px 10%;
     margin-bottom: 30px;
+    background-color: var(--primary-color);
 }
 
-.website-link{
-    text-decoration: none;
-    color: white;
-    font-size: 30px;
-    font-family: "Anton SC", sans-serif;
-    font-weight: 200;
-    text-align: center;
-    flex: 1;
-    white-space: nowrap;
-    cursor: default;
-}
-
-#website-title{
-    min-width: 210px;
-    max-width: 220px;
-    cursor: pointer;
-}
-
-.navbar-links{
+#navbar-links-container{
     display: flex;
     flex-direction: row;
     justify-content:flex-start;
     flex: 1;
 }
 
-.navbar-links a{
+#navbar-links-container a{
+    position: relative;
+    margin: 0% 10%;
     text-decoration: none;
     color: white;
-    margin: 0% 10%;
-    position: relative;
 }
 
-.navbar-links a:hover{
+#navbar-links-container a:hover{
     color:white;
 }
 
-.navbar-links a::before {
+#navbar-links-container a::before {
     content: "";
     position: absolute;
     display: block;
@@ -67,21 +45,38 @@
     transition: transform 0.3s ease;
 }
 
-.navbar-links a:hover::before{
+#navbar-links-container a:hover::before{
     transform: scaleX(1);
 }
 
-.navbar-button{
+#website-link-container{
+    text-decoration: none;
+    color: white;
+    font-family: "Anton SC", sans-serif;
+    font-size: 30px;
+    font-weight: 200;
+    text-align: center;
+    white-space: nowrap;
+    cursor: default;
     flex: 1;
+}
+
+#website-title{
+    cursor: pointer;
+}
+
+#navbar-button{
     display: flex;
     justify-content: right;
+    flex: 1;
 }
+
+/* SEARCH RELATED */
 
 #search-form{
     display: flex;
     justify-content: center;
-    margin: 0%;
-    margin-bottom: 25px;
+    margin: 0 0 25px 0;
 }
 
 #entry-container{
@@ -92,45 +87,31 @@
     border-radius: 6px;
 }
 
-.input-section{
-    margin: 0% 2%;
+#input-section{
+    margin: 0% 5%;
 }
 
 input{
+    padding-left: 7px;
     border: solid rgb(155, 155, 155);
     border-radius: 5px;
-    padding-left: 7px;
     text-decoration: none;
-    transition: border-color 0.4s ease;
     outline: none;
+    transition: border-color 0.4s ease;
 }
 
 input:focus{
     border-color: var(--primary-color);
 }
 
-.requirement-note{
-    font-family: "Beiruti", sans-serif;
-    color:darkgray;
-    padding-top: 3px;
-}
-
-.red{
-    color: var(--primary-color);
-}
-
 #confirmation{
-    height: 28px;
     padding: 3px;
+    height: 28px;
     line-height: 19px;
     border: solid var(--primary-color) 2px;
     border-radius: 5px;
     background-color: white;
     transition: background-color 0.2s;
-}
-
-#confirmation:hover{
-    background-color: var(--primary-color);
 }
 
 i{
@@ -142,143 +123,28 @@ i{
     color: white;
 }
 
-#body-container{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding-bottom: 40px;
+#confirmation:hover{
+    background-color: var(--primary-color);
 }
 
-#jump-section{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-}
+/* ALERT RELATED */
 
-#artist-jump-link{
-    padding: 0px 5px;
-    transition: 0.2s;
-    cursor: pointer;
-    text-decoration: none;
-    color: black;
-    padding: 5px 10px;
-    border-radius: 25px;
-    border: .12rem solid var(--primary-color);
-}
-
-#artist-jump-link:hover{
-    color: var(--primary-color);
-}
-
-.down-arrow{
-    line-height: 24px;
-}
-
-.info-card{
-    width: 40%;
-    margin: 0px 2% 30px 0px;
-    max-width: 650px;
-}
-
-.mini-header{
-    width: 200px;
-    display: inline;
-    margin: 0px auto 10px auto;
-    text-align: center;
-    color: var(--primary-color);
-}
-
-.midderson{
-    margin-top: 10px;
-    padding-top: 20px;
-}
-
-#info-top{
-    margin: auto;
-    padding-bottom: 20px;
-}
-
-#preview{
-    margin: 0px auto 50px auto;
-    width: 250px;
-}
-
-.card-head{
-    color: var(--primary-color);
-    border: solid var(--primary-color) 0.15rem;
-    height: 55px;
-    border-radius: 10px 10px 0px 0px;
-    text-align: center;
-    line-height: 50px;
-    font-family: "Anton SC", sans-serif;
-    font-size: 25px;
-    letter-spacing: 1px;
-}
-
-.card-content{
-    border: solid var(--primary-color) 2px;
-    border-top: none;
-    border-radius: 0px 0px 10px 10px;
-    padding: 6% 7% 0% 7%;
-    font-family: "Nunito", sans-serif;
-    font-weight: 500;
-    font-size: 25px;
-    line-height: 35px;
-}
-
-#lyrics{
-    white-space: pre-line;
-    margin: 0;
-}
-
-.mini-heads{
-    color: var(--primary-color);
-    padding-top: 7px;
-    margin-bottom: 5px;
-}
-
-#lyrics-content{
-    height: 0;
-    overflow: hidden;
-    transition: height 1s ease;
-}
-
-#lyrics-content.show{
-    height: 100%;
-}
-
-#artist-content{
-    height: 0;
-    overflow: hidden;
-    transition: height 1s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#artist-content.show{
-    height: auto;
-}
-
-.alerter{
-    text-align: center;
+#alerter{
     display: block;
-    background-color: rgba(255, 0, 0, 0.299);
-    margin-bottom: 25px;
     height: 0px;
+    text-align: center;
+    background-color: rgba(255, 0, 0, 0.299);
     overflow: hidden;
     line-height: 50px;
     transition: 1s ease;
 }
 
-.alerter.show{
+#alerter.show{
+    margin-bottom: 25px;
     height: 50px;
 }
 
-.hidden{
-    display: none;
-}
+/* RESULTS RELATED */
 
 #result-container{
     display: flex;
@@ -291,11 +157,11 @@ i{
 }
 
 .result-row{
-    border-bottom: 2px solid var(--primary-color);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 10px 2%;
+    border-bottom: 2px solid var(--primary-color);
 }
 
 .result-row-info{
@@ -308,24 +174,24 @@ i{
 }
 
 .artist-song-info{
-    width: 200px;
     padding: 5px 20px;
+    width: 200px;
     line-height: 40px;
 }
 
-.lyrics-btn-container{
+.result-btn-container{
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
 .find-lyrics-btn{
-    height: 60px;
     width: 100px;
-    outline: none;
+    height: 60px;
+    border: 2px solid var(--primary-color);
     border-radius: 7px;
     background-color: white;
-    border: 2px solid var(--primary-color);
+    outline: none;
     transition: color 0.2s;
 }
 
@@ -338,31 +204,124 @@ i{
     font-size: 20px;
 }
 
-#explicit{
-    display: none;
-}
-
-#explicit.show{
-    display: block;
-}
-
 .info-photo{
+    margin: auto;
     min-width: 200px;
     max-width: 250px;
     border-radius: 6px;
-    margin: auto
 }
 
-#artist-heading{
-    display: inline;
+/* BODY RELATED */
+
+#body-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 40px;
+    width: 100%;
 }
 
-#artist-heading.show{
-    display: inline;
+#jump-section{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
 }
+
+#artist-jump-link{
+    padding: 5px 10px;
+    border: .12rem solid var(--primary-color);
+    border-radius: 25px;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#artist-jump-link:hover{
+    color: var(--primary-color);
+}
+
+.down-arrow{
+    line-height: 24px;
+}
+
+/* CARD RELATED */
+
+.info-card{
+    width: 40%;
+    margin: 0px 2% 30px 0px;
+    max-width: 650px;
+}
+
+.card-content{
+    padding: 6% 7% 7% 7%;
+    border: solid var(--primary-color) 2px;
+    border-radius: 0px 0px 10px 10px;
+    border-top: none;
+    font-family: "Nunito", sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 35px;
+}
+
+.card-head{
+    height: 55px;
+    border: solid var(--primary-color) 0.15rem;
+    border-radius: 10px 10px 0px 0px;
+    font-family: "Anton SC", sans-serif;
+    font-size: 25px;
+    line-height: 50px;
+    text-align: center;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+}
+
+.small-inline-heading{
+    display: inline;
+    margin-bottom: 10px;
+    width: 200px;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+#lyrics-content{
+    height: 0;
+    overflow: hidden;
+    transition: height 1s ease;
+}
+
+#lyrics-content.show{
+    height: 100%;
+}
+
+#lyrics{
+    margin: 0;
+    white-space: pre-line;
+}
+
+#song-header{
+    display: block;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+#artist-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 0;
+    overflow: hidden;
+    transition: height 1s ease;
+}
+
+#artist-content.show{
+    height: auto;
+}
+
+/* RESPONSIVENESS RELATED */
 
 @media(max-width: 750px){
-    .navbar-container{
+    #navbar-container{
         flex-wrap: wrap;
     }
 
@@ -370,32 +329,32 @@ i{
         flex: 1 0 50%;
     }
 
-    .website-link{
+    #website-link-container{
         flex-basis: 100%;
         border-bottom: solid white 1px;
         margin-bottom: 8px;
     }
 
-    .navbar-links{
+    #navbar-links-container{
         order: 2;
     }
 
-    .navbar-button{
+    #navbar-button{
         order: 3;
     }
 }
 
 @media(max-width: 251px){
-    .navbar-button{
+    #navbar-button{
         justify-content: center;
     }
 
-    .navbar-links a{
+    #navbar-links a{
         padding-right: 0%;
         padding: 0px 10%;
     }
 
-    .website-link{
+    #website-link{
         white-space: normal;
     }
 }
@@ -403,16 +362,28 @@ i{
 @media(max-width: 500px){
     #entry-container{
         flex-direction: column;
-        padding: 6% 7%;
+        padding: 5% 5%;
     }
 
-    .input-section{
-        margin-bottom: 10px;
+    #input-section{
+        margin: 0px 0px 10px 0px;
+    }
+
+    #song-entry{
+        padding: 0px 7px;
+    }
+
+    #song-entry::placeholder{
+        text-align: center;
     }
 }
 
+@media(max-width: 560px){
+    /* results row stuff */
+}
+
 @media(max-width: 730px){
-    .artist-card{
+    #artist-card{
         order: 100;
     }
 
