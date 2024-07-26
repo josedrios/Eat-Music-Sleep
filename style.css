@@ -175,6 +175,7 @@ i{
 .result-row-info{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .result-image{
@@ -205,6 +206,10 @@ i{
 
 .find-lyrics-btn:hover{
     color: var(--primary-color);
+}
+
+.find-lyrics-btn.hide{
+    display: none;
 }
 
 .result-header{
@@ -413,8 +418,29 @@ i{
     }
 }
 
-@media(max-width: 560px){
-    /* results row stuff */
+@media(max-width: 555px){
+    .find-lyrics-btn.hide{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        line-height: 40px;
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .result-row{
+        display: block;
+    }
+
+    .result-header{
+        line-height: 30px;
+        font-size: 18px;
+    }
+
+    .remove{
+        display: none;
+    }
 }
 
 @media(max-width: 730px){

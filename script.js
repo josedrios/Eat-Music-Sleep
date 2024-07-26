@@ -26,11 +26,15 @@ btn.addEventListener('keypress', function(event){
     }
 });
 
+document.getElementById('confirmation').addEventListener('click', function(event) {
+    event.preventDefault();
+});
+
 // API (INFORMATION RETRIEVAL)
 btn.addEventListener('click', async (e) => {
-    var song = songInput.value.trim();
-
     resultsContainer.innerHTML = '';
+    
+    var song = songInput.value.trim();
 
     if(song === ''){
         alerter.classList.add("show");
@@ -66,10 +70,11 @@ btn.addEventListener('click', async (e) => {
                     <div class="artist-song-info">
                         <div class="result-header">${currentArtist}</div>
                         <div class="result-header">${currentSong}</div>
+                        <button class="find-lyrics-btn hide">View Lyrics</button>
                     </div>
                 </div>
                 <div class="result-btn-container">
-                    <button class="find-lyrics-btn id=button-test">View Lyrics</button>
+                    <button class="find-lyrics-btn remove">View Lyrics</button>
                 </div>`
                 resultsContainer.appendChild(newResult);
             }
@@ -98,6 +103,7 @@ function populateLyrics(data, index){
     fetch(`https://api.lyrics.ovh/v1/${tempName}/${tempSong}`)
     .then(response => response.json())
     .then(data => {
+        data.lyrics = removePrefix(data)
         if(data['lyrics'] === undefined){
             lyrics.innerHTML = "No Lyrics Found"
             lyricsContent.classList.add("no-lyrics");
@@ -115,4 +121,15 @@ function populateLyrics(data, index){
             art.classList.add("show")
         }
     })    
+}
+
+function removePrefix(data){
+    if(data.lyrics.includes("Paroles de la chanson")){
+        const lines = data.lyrics.split('\n');
+        lines.shift();
+        const newLyrics = lines.join('\n');
+        return newLyrics
+    }else{
+        return data.lyrics
+    }
 }
