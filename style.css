@@ -71,6 +71,104 @@
     flex: 1;
 }
 
+#jump-container{
+    display: none;
+    width: 100%;
+    text-align: center;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+#jump{
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+#jump:hover{
+    color: rgb(194, 100, 63);
+}
+
+/* ABOUT INFO SECTION RELATED */
+
+#about-body{
+    display: flex;
+    flex-direction: row;
+    margin: 7% 10%;
+    padding: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 20px;
+}
+
+#person-info-card{
+    display: flex;
+    flex-direction: column;
+}
+
+#person-info-card > *{
+    margin: 10px;
+}
+
+#dev-title{
+    margin: 0 auto;
+}
+
+#orange{
+    color: var(--primary-color);
+}
+
+#dev-title p{
+    display: inline;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+}
+
+#card-pfp{
+    height: 200px;
+    border-radius: 10000px;
+}
+
+#text-info-card{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin: 0px 10px 0px 30px;
+}
+
+#text-info-card p{
+    text-align: center;
+    font-size: 23px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+#text-info-card div{
+    font-size: 19px;
+}
+
+@media(max-width: 870px){
+    #about-body{
+        flex-direction: column;
+    }
+
+    #person-info-card{
+        order: 100;
+    }
+    
+    #card-pfp{
+        height: 100px;
+        width: 100px;
+        margin: 30px auto 20px auto;
+    }
+
+    #text-info-card{
+        margin: 0;
+        padding: 0;
+    }
+
+    #text-info-card > *{
+        margin: 5px auto;
+    }
+}
+
 /* SEARCH RELATED */
 
 #search-form{
@@ -444,6 +542,10 @@ i{
         justify-content: center;
     }
 
+
+    #jump-container{
+        display: block;
+    }
 }
 
 

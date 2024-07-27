@@ -30,6 +30,11 @@ document.getElementById('confirmation').addEventListener('click', function(event
     event.preventDefault();
 });
 
+// Github Button
+document.getElementById("github-btn").onclick = function() {
+    window.open("https://github.com/josedrios/Eat-Music-Sleep", "_blank");
+}
+
 // API (INFORMATION RETRIEVAL)
 btn.addEventListener('click', async (e) => {
     resultsContainer.innerHTML = '';
@@ -38,10 +43,7 @@ btn.addEventListener('click', async (e) => {
     var song = songInput.value.trim();
 
     if(song === ''){
-        alerter.classList.add("show");
-        setTimeout(function(){
-            alerter.classList.remove("show")
-        }, 3500)
+        await showAlert();
         return;
     }
 
@@ -139,4 +141,11 @@ function removePrefix(data){
     }else{
         return data.lyrics
     }
+}
+
+function showAlert(){
+    alerter.classList.add("show");
+        setTimeout(function(){
+            alerter.classList.remove("show")
+        }, 3500)
 }
