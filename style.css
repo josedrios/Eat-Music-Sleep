@@ -180,10 +180,12 @@ i{
 
 .result-image{
     border-radius: 1000px;
+    height: 120px;
+    width: 120px;
 }
 
 .artist-song-info{
-    padding: 5px 20px;
+    padding: 5px 10px 0px 20px;
     width: 200px;
     line-height: 40px;
 }
@@ -232,26 +234,6 @@ i{
     justify-content: center;
     padding-bottom: 40px;
     width: 100%;
-}
-
-#jump-section{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-}
-
-#artist-jump-link{
-    padding: 5px 10px;
-    border: .12rem solid var(--primary-color);
-    border-radius: 25px;
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-#artist-jump-link:hover{
-    color: var(--primary-color);
 }
 
 .down-arrow{
@@ -427,15 +409,19 @@ i{
         line-height: 40px;
         font-size: 15px;
         text-align: center;
+        width: 100%;
+        white-space: nowrap;
     }
 
     .result-row{
         display: block;
+        text-align: center;
     }
 
     .result-header{
         line-height: 30px;
         font-size: 18px;
+        margin-bottom: 7px;
     }
 
     .remove{
@@ -458,12 +444,6 @@ i{
         justify-content: center;
     }
 
-}
-
-@media(min-width: 731px){
-    #jump-section{
-        display: none;
-    }
 }
 
 

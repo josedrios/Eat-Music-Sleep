@@ -33,6 +33,7 @@ document.getElementById('confirmation').addEventListener('click', function(event
 // API (INFORMATION RETRIEVAL)
 btn.addEventListener('click', async (e) => {
     resultsContainer.innerHTML = '';
+    lyrics.innerHTML = '';
     
     var song = songInput.value.trim();
 
@@ -74,22 +75,21 @@ btn.addEventListener('click', async (e) => {
                     </div>
                 </div>
                 <div class="result-btn-container">
-                    <button class="find-lyrics-btn remove">View Lyrics</button>
+                    <button class="find-lyrics-btn post-lyrics remove">View Lyrics</button>
                 </div>`
                 resultsContainer.appendChild(newResult);
             }
 
-            var buttons = document.querySelectorAll('.find-lyrics-btn');
+            var buttons = document.querySelectorAll('.post-lyrics');
             buttons.forEach((button, index) => {
                 button.addEventListener('click', () => {
                     populateLyrics(data, index)
                 });
             });
-            populateLyrics(data,0) // DEL
         })
 })
 
-function populateLyrics(data, index){
+async function populateLyrics(data, index){
     var tempName = data.data[index].artist.name;
     var tempSong = data.data[index].title;
     var tempAlbum = data.data[index].album.title;
@@ -100,27 +100,34 @@ function populateLyrics(data, index){
     artistPhoto.setAttribute('src',`${artistPic}`);
     album.setAttribute('src', `${albumPic}`);
 
-    fetch(`https://api.lyrics.ovh/v1/${tempName}/${tempSong}`)
+    await fetch(`https://api.lyrics.ovh/v1/${tempName}/${tempSong}`)
     .then(response => response.json())
     .then(data => {
         data.lyrics = removePrefix(data)
+        console.log(data.lyrics)
         if(data['lyrics'] === undefined){
             lyrics.innerHTML = "No Lyrics Found"
             lyricsContent.classList.add("no-lyrics");
         }else{
             lyrics.innerHTML = data['lyrics']
         }
-    
-        artistHeader.innerHTML = tempName;
-        songHeader.innerHTML = tempSong;
-        albumHeader.innerHTML = tempAlbum;
+    })
 
-        if(lyrics.textContent.trim() !== ''){
-            lyricsContent.classList.add("show");
-            showArtistInfo.classList.add("show")
-            art.classList.add("show")
-        }
-    })    
+    artistHeader.innerHTML = tempName;
+    songHeader.innerHTML = tempSong;
+    albumHeader.innerHTML = tempAlbum;
+
+    if(lyrics.textContent.trim() !== ''){
+        lyricsContent.classList.add("show");
+        showArtistInfo.classList.add("show")
+        art.classList.add("show")
+    }    
+
+    const jumpTo = document.getElementById('jump-destination');
+    window.scrollTo({
+        top: jumpTo.offsetTop,
+        behavior: 'smooth'
+    })
 }
 
 function removePrefix(data){
