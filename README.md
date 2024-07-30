@@ -20,7 +20,7 @@ Eat Music Sleep is a web application designed to provide users with a seamless e
 
 ## Project Structure
 
-\`\`\`
+```
 Eat-Music-Sleep/
 ├── LICENSE
 ├── README.md
@@ -29,7 +29,7 @@ Eat-Music-Sleep/
 ├── pfp.webp
 ├── script.js
 └── style.css
-\`\`\`
+```
 
 ## Getting Started
 
@@ -43,18 +43,20 @@ Ensure you have the following installed:
 ### Installation
 
 1. Clone the repository:
-   \`\`\`bash
+   ```bash
    git clone https://github.com/josedrios/Eat-Music-Sleep.git
-   \`\`\`
+   ```
+
 2. Navigate to the project directory:
-   \`\`\`bash
+   ```bash
    cd Eat-Music-Sleep
-   \`\`\`
+   ```
+
 
 ### Usage
 
 1. Open \`home.html\` in your web browser to access the application.
-2. Explore music recommendations and create your playlists.
+2. Explore song lyrics and a little about the artist.
 
 ## License
 
